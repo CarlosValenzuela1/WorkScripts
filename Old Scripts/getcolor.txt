@@ -1,0 +1,85 @@
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn  ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+#SingleInstance Force
+#Persistent
+
+^F1::
+
+waitColorChange()
+
+
+return
+
+
+
+;test
+;#MaxThreadsPerHotkey 2
+
+getColor()
+{
+		MouseGetPos Xpos, Ypos
+		PixelGetColor Colour, %Xpos%, %Ypos%, RGB
+
+Return Colour
+}
+
+
+waitColorChange()
+{
+	firstColor := getColor()
+	lastColor := getColor()
+	while (firstColor == lastColor)
+	{
+		lastColor := getColor()
+	}
+	msgBox Not the same color!
+}
+
+/*
+^RButton::
+StringTrimLeft Colour, Colour, 2					; Remove 0x
+Clipboard = %Colour%
+ToolTip Copied to the clipboard:`n%Colour%
+Sleep 3000
+ToolTip %Colour%
+Return
+*/
+
+/*
+CoordMode, Mouse, Screen
+
+Loop
+
+{
+	Sleep, 2000
+	MouseX := 
+	MouseY :=	
+	MouseGetPos, MouseX, MouseY
+;	MouseX := MouseX + 1042
+;	MouseY := MouseY
+	PixelGetColor, Color, %MouseX%, %MouseY%, RGB
+	sleep 100
+;	tooltip, x: %MouseX%`, y: %MouseY%
+	tooltip, Color: %Color%
+	MsgBox %Color%
+
+	;Color := 0xFFFFFF
+	If Color = 0xFFFFFF
+	{
+		;tooltip, x: %x%`, y: %y%
+		;MsgBox color is white
+		;MouseClick, right, 1568, 780
+		MsgBox thiiis color
+		return
+
+	} Else {
+		;tooltip, x: %x%`, y: %y%
+		Sleep, 1000
+
+	}
+*/
+;}
+;return
+;;

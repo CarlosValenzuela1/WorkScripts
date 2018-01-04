@@ -1,0 +1,114 @@
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn  ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+#SingleInstance Force
+#Persistent
+#MaxThreadsPerHotkey 2
+
+CoordMode, Mouse, Screen
+SetTimer,Check,1000
+Found=0
+Return
+Check:
+
+MouseGetPos Xpos, Ypos
+PixelGetColor, color, 1735, 422, RGB
+   if color != 0xFFFFFF
+   {
+
+if(Found = 0){   
+         FirstFound := A_Tickcount
+         }
+      Found=1
+}else{
+   Found=0
+}
+Check := (A_Tickcount - FirstFound)
+
+if(Check >= 5000){
+SetTimer,Check,off
+  Msgbox,The color has not been ther for 5 seconds. ;Restart Whatever....
+}
+return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+^F1::
+/*
+;***********************Get Color**************************
++^R::Reload      ;Reloads Script
++^P::Pause       ;Pauses  Script
+Ins:: Suspend    ;Suspend hotkeys
+
+;Ctrl+Leftmousebutton  = Start stop Color Detection
+;Ctrl+RightMousebutton = Copy currently color to clipboard
+;***********************************************************
+*/
+
+firstColor = method()
+;MsgBox Ya dio first color
+hasChangedColor := 0
+while (hasChangedColor == 0)
+{
+	send {ScrollLock}
+	if (ClipBoard == firstColor)
+	{
+		hasChangedColor := 1
+	}
+}
+
+MsgBox Color Changed
+
+
+
+return
+
+ScrollLock::
+Toggle := !Toggle
+While Toggle {
+	MouseGetPos Xpos, Ypos
+	PixelGetColor Colour, %Xpos%, %Ypos%, RGB
+	Clipboard = %Colour%
+;	ToolTip Copied to the clipboard:`n%Colour%
+;	Sleep 3000
+;	ToolTip %Colour%
+	}
+Return
+
+
+method()
+{
+Toggle := !Toggle
+While Toggle {
+	MouseGetPos Xpos, Ypos
+	PixelGetColor Colour, %Xpos%, %Ypos%, RGB
+	Clipboard = %Colour%
+}
+}
+return
+
+*/

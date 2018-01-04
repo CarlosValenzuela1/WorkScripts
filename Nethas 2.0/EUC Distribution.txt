@@ -1,0 +1,284 @@
+openIncidentDistributionEUC()
+{
+	MouseMove, 2517, 138				;Hovers over Reports
+	sleep 200
+	MouseMove, 2535, 191				;Hovers over Volumetric Reports
+	sleep 200
+	MouseMove, 2783, 187				;Hovers over Change
+	sleep 200
+	MouseMove, 2718, 220				;Hovers over Incident
+	sleep 200
+	MouseClick, left, 2869, 225			;Clicks in Incident Distribution
+	sleep 900					;Waits 900 miliseconds to move the mouse to wait for color 
+
+change
+	MouseMove, 2886, 518				;Hovers over loading image
+	waitColorChange()				;waits for the first change color
+	waitColorChange()				;waits for the secod change color
+	MouseClick, left, 2081, 171 			;It clicks on the settings wheel
+	sleep 300
+	MouseClick, left, 2991, 557 			;It clicks on the dropdown menu
+	sleep 300
+	MouseClick, left, 2915, 634			;Select EUC OPEN REPORT
+	sleep 300
+	MouseClick, left, 2884, 640  			;Click in Okay option.
+	sleep 100					;Wait for animation to finish
+	MouseMove, 2886, 518				;Hovers over loading image
+	waitColorChange()				;Wait for color change
+	MouseClick, left, 3806, 255			;Clicks on Filter options
+	sleep 500					;Waits till filter option opens
+	send {TAB 4}					;Types TAB four times
+	sleep 100					;Wait for changes to be reflected on screen
+	send {down}					;selects the dropdown option (SYMBOL <= or =>)
+	MouseClick, left, 2951, 419			;Clicks on the date field
+	sleep 500					;Waits for popup to appear
+
+
+	tempMove()
+	filterDate()
+
+
+
+	CoordMode, Mouse, Screen			;Returns focus to both monitors
+	MouseClick, left, 2890, 869			;Click in Done
+	;sleep 1000					;Wait 1 second and activate the color change
+	waitColorChange()
+	MouseClick, left, 3742, 271			;Clicks on Table icon (Upper-left side on Netasthra)
+	sleep 200
+	MouseMove, 2886, 518				;Hovers over loading image
+	waitColorChange() 				;Maybe it requires two color changes if speed is fast
+	sleep 500
+	MouseClick, left, 2001, 226			;Click on the Eye (add/remove columns)
+	sleep 300 					;Maybe delete this
+	send {TAB 3}
+	sleep 1000
+	send category					;Types CATEGORY
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200			
+	Send type					;Types TYPE
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200	
+	Send Owner Group Name				;Types Owner Group Name
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200					
+	Send item					;Types ITEM
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200			
+	Send Created By					;Types CREATED BY
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200			
+	Send Solved Date				;Types SOLVED DATE
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200			
+	Send Resolution Target Date			;Types Resolution Target Date
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200			
+	Send Closed Date				;Types CLOSED DATE
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200			
+	Send Source					;Types SOURCE
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200	
+	Send Region					;Types Region
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200					
+	Send Country					;Types COUNTRY
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200
+	Send Business Unit				;Types Business Unit
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200		
+	Send Group Change Count				;Types Group Change Count
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200					
+	Send Location					;Types LOCATION
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 300	
+	MouseClick, left, 2827, 799
+	MouseClick, left, 1965, 223			;It clicks on download file
+
+}
+
+openServiceDistributionEUC()
+{
+	MouseMove, 2517, 138				;Hovers over Reports
+	sleep 200
+	MouseMove, 2535, 191				;Hovers over Volumetric Reports
+	sleep 200
+	MouseMove, 2783, 187				;Hovers over Change
+	sleep 200
+	MouseMove, 2708, 323				;Hovers over Service Request
+	sleep 200
+	MouseClick, left, 2912, 325			;Clicks in Service Request
+	sleep 900					;Waits 900 miliseconds to move the mouse to wait for color 
+
+change
+	MouseMove, 2886, 518				;Hovers over loading image
+	waitColorChange()				;waits for the first change color
+	waitColorChange()				;waits for the secod change color
+	MouseClick, left, 2081, 171 			;It clicks on the settings wheel
+	sleep 300
+	MouseClick, left, 2991, 557 			;It clicks on the dropdown menu
+	sleep 300
+	MouseClick, left, 2958, 634 			;Select EUC OPEN REPORT
+	sleep 300
+	MouseClick, left, 2884, 640  			;Click in Okay option.
+	sleep 100					;Wait for animation to finish
+	MouseMove, 2886, 518				;Hovers over loading image
+	waitColorChange()				;Wait for color change
+	MouseClick, left, 3806, 255			;Clicks on Filter options
+	sleep 500					;Waits till filter option opens
+	send {TAB 4}					;Types TAB four times
+	sleep 100					;Wait for changes to be reflected on screen
+	send {down}					;selects the dropdown option (SYMBOL <= or =>)
+	MouseClick, left, 2951, 419			;Clicks on the date field
+	sleep 500					;Waits for popup to appear
+
+
+	tempMove()
+	filterDate()
+
+
+	CoordMode, Mouse, Screen			;Returns focus to both monitors
+	MouseClick, left, 2890, 869			;Click in Done
+	;sleep 1000					;Wait 1 second and activate the color change
+	waitColorChange()
+	MouseClick, left, 3742, 271			;Clicks on Table icon (Upper-left side on Netasthra)
+	sleep 200
+	MouseMove, 2886, 518				;Hovers over loading image
+	waitColorChange() 				;Maybe it requires two color changes if speed is fast
+	sleep 500
+	MouseClick, left, 2001, 226			;Click on the Eye (add/remove columns)
+	sleep 300 					;Maybe delete this
+	send {TAB 3}
+	sleep 1000
+	send category					;Types CATEGORY
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200			
+	Send type					;Types TYPE
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200	
+	Send Owner Group Name				;Types Owner Group Name
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200					
+	Send item					;Types ITEM
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200			
+	Send Created By					;Types CREATED BY
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200			
+	Send Solved Date				;Types SOLVED DATE
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200			
+	Send Resolution Target Date			;Types Resolution Target Date
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200			
+	Send Closed Date				;Types CLOSED DATE
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200			
+	Send Source					;Types SOURCE
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200	
+	Send Region					;Types Region
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200					
+	Send Country					;Types COUNTRY
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200
+	Send Business Unit				;Types Business Unit
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200		
+	Send Group Change Count				;Types Group Change Count
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 200					
+	Send Location					;Types LOCATION
+	sleep 200
+	send {Tab}{Space}
+	sleep 200
+	send {Shift down}{Tab}{Shift up}
+	sleep 300	
+	MouseClick, left, 2827, 799
+	MouseClick, left, 1965, 223			;It clicks on download file
+
+}
